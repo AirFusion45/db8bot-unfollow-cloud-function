@@ -13,8 +13,8 @@ exports.unfollow = (req, resApp) => {
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .send(JSON.parse(JSON.stringify(payload)))
         .end((err, res) => {
-            if (err) console.error(err)
-            console.log(`req1 done: ${res.body}`)
+            if (err) console.error(`Err @ 1st req: ${err}`)
+            console.log(`req1 done: ${JSON.stringify(res.body)}`)
             superagent
                 .get(unfollowLink)
                 .set('Cookie', res.body.token)
