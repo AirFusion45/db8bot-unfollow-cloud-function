@@ -8,6 +8,8 @@ exports.unfollow = (req, resApp) => {
         password: req.body.tabPass
     }
     console.log('not in requests yet')
+    console.log(unfollowLink)
+    console.log(payload)
     superagent
         .post('https://debateapis.wm.r.appspot.com/login')
         .set('Content-Type', 'application/x-www-form-urlencoded')
