@@ -2,9 +2,7 @@ const superagent = require('superagent');
 exports.unfollow = (req, resApp) => {
 
     // console.log(req.body)
-    var buffer = Buffer.from(req.body, 'base64') 
-    console.log(buffer.toString())
-    var data = JSON.parse(buffer.toString())
+    var data = JSON.parse(req.body)
     console.log(data)
 
     var { unfollowLink, tabapiauth, username, password } = req.body
