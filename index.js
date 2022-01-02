@@ -1,15 +1,14 @@
 const superagent = require('superagent');
 exports.unfollow = (req, resApp) => {
-    console.log(req.body)
-    var unfollowLink = req.body.unfollowLink
+    var parsed = JSON.parse(req.body)
+    var unfollowLink = parsed.unfollowLink
 
     var payload = {
-        apiauth: req.body.tabapiauth,
-        username: req.body.username,
-        password: req.body.password
+        apiauth: parsed.tabapiauth,
+        username: parsed.username,
+        password: parsed.password
     }
-    console.log(payload)
-    console.log(unfollowLink)
+    
     superagent
         .post('https://debateapis.wm.r.appspot.com/login')
         .set('Content-Type', 'application/x-www-form-urlencoded')
