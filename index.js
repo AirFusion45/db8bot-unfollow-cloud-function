@@ -7,12 +7,14 @@ exports.unfollow = (req, resApp) => {
         username: req.body.username,
         password: req.body.password
     }
+    console.log(payload)
+    console.log(unfollowLink)
     superagent
         .post('https://debateapis.wm.r.appspot.com/login')
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .send(JSON.parse(JSON.stringify(payload)))
         .end((err, res) => {
-            if (err) console.error(`Err @ 1st req: ${err}`)
+            if (err) console.error(`Err @ 1st req: ${err.message}`);
             superagent
                 .get(unfollowLink)
                 .set('Cookie', res.body.token)
