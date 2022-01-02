@@ -7,8 +7,15 @@ exports.unfollow = (req, resApp) => {
     // console.log(username)
     // console.log(password)
     // console.log(req.body)
-    console.log(JSON.parse(Buffer.from(Buffer.from(req.body).toString('base64'), 'base64').toString()))
-    console.log(JSON.parse(Buffer.from(Buffer.from(req.body).toString('base64'), 'base64').toString()).unfollowLink)
+    var body = req.body
+    console.log(body)
+    console.log(Buffer.from(req.body).toString('base64'))
+    var buff = Buffer.from(req.body).toString('base64')
+    console.log(buff)
+    var tostr = Buffer.from(Buffer.from(buff).toString('base64'), 'base64').toString()
+    console.log(tostr)
+    var parsed = JSON.parse(tostr)
+    console.log(parsed)
 
     var payload = {
         apiauth: tabapiauth,
