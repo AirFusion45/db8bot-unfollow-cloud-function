@@ -2,6 +2,14 @@ const superagent = require('superagent');
 exports.unfollow = (req, resApp) => {
     var { unfollowLink, tabapiauth, username, password } = req.body
 
+    console.log(unfollowLink)
+    console.log(tabapiauth)
+    console.log(username)
+    console.log(password)
+    console.log(req.body)
+    console.log(JSON.parse(Buffer.from(Buffer.from(req.body).toString('base64'), 'base64').toString()))
+    console.log(JSON.parse(Buffer.from(Buffer.from(req.body).toString('base64'), 'base64').toString()).unfollowLink)
+
     var payload = {
         apiauth: tabapiauth,
         username: username,
