@@ -1,5 +1,6 @@
 const superagent = require('superagent');
 exports.unfollow = (req, resApp) => {
+    console.log(req.body)
     var unfollowLink = req.body.unfollowLink
 
     var payload = {
