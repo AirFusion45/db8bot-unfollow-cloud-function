@@ -11,7 +11,7 @@ exports.unfollow = (req, resApp) => {
     }
 
     superagent
-        .post('https://debateapis.wm.r.appspot.com/login')
+        .post(`${process.env.TABURL}/login`)
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .send(JSON.parse(JSON.stringify(payload)))
         .end((err, res) => {
@@ -22,7 +22,7 @@ exports.unfollow = (req, resApp) => {
                 .redirects(1)
                 .end((err, res) => {
                     if (err) console.error(`Err @ 2nd req: ${err}`)
-                    if (res.text.includes('Stop Your Live Updates')) {
+                    if (res.text.includes('Follower removed')) {
                         resApp.status(200).send('Unfollowed')
                     }
                 })
